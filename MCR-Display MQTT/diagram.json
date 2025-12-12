@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 86.4, "left": 110.44, "attrs": {} },
+    {
+      "type": "board-ili9341-cap-touch",
+      "id": "lcd1",
+      "top": -76.04,
+      "left": 335.62,
+      "attrs": {}
+    },
+    { "type": "wokwi-ds1307", "id": "rtc1", "top": 378.6, "left": 259.3, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:3V3", "lcd1:VCC", "green", [ "h-57.45", "v-48", "h268.8", "v182.4", "h48" ] ],
+    [ "esp:3V3", "rtc1:5V", "green", [ "h-57.45", "v297.6" ] ],
+    [ "esp:GND.2", "lcd1:GND", "black", [ "v0", "h96", "v153.6", "h76.8" ] ],
+    [ "esp:GND.2", "rtc1:GND", "black", [ "v0", "h38.4", "v278.4" ] ],
+    [ "esp:5", "lcd1:CS", "green", [ "h67.2", "v105.6", "h124.8", "v-48", "h-9.6" ] ],
+    [ "lcd1:RST", "esp:4", "green", [ "v124.8", "h-144", "v-105.6" ] ],
+    [ "esp:2", "lcd1:D/C", "green", [ "h86.4", "v38.4", "h115.2" ] ],
+    [ "esp:23", "lcd1:MOSI", "green", [ "h96", "v230.4", "h115.2" ] ],
+    [
+      "esp:18",
+      "lcd1:SCK",
+      "green",
+      [ "h86.4", "v163.2", "h0", "v9.6", "h163.2", "v-96", "h-28.8" ]
+    ],
+    [ "lcd1:LED", "esp:15", "green", [ "v0" ] ],
+    [ "esp:21", "rtc1:SDA", "green", [ "h0" ] ],
+    [ "esp:22", "rtc1:SCL", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
